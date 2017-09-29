@@ -161,7 +161,7 @@
                                 			<tbody>
                                 				<tr th:each="userPayment : ${userPaymentlist}">
                                 				<td>
-                                					<input type="radio" name="defaultUserPaymentId" th:value="${userPayment.id} th:checked="${userPayment.defaultPayment}" />
+                                					<input type="radio" name="defaultUserPaymentId" th:value="${userPayment.id}" th:checked="${userPayment.defaultPayment}" />
                                 				</td>
                                 				<td th:text="${userPayment.cardName}"></td>
                                 				<td>
