@@ -8,10 +8,10 @@
 <title>Le's Bookstore</title>
 
 <!-- Bootstrap core CSS -->
-<link href="/css/bootstrap.min.css" rel="stylesheet" />
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
 
 <!-- Custom styles for this template -->
-<link href="/css/style.css" rel="stylesheet" />
+<link th:href="@{/css/style.css}" rel="stylesheet" />
 
 <link rel="icon" href="/image/applie-touch-icon.png" />
 </head>
@@ -41,7 +41,7 @@
 								<li><a href="#">View book list</a></li>
 							</ul></li>
 					</ul>
-					
+
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="#">Sign out</a></li>
 					</ul>
@@ -53,9 +53,8 @@
 	</div>
 
 	<div th:fragment="body-bottom-scripts">
-		<script
-			src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script src="/js/bootstrap.min.js"></script>
+		<script th:src="@{/js/jquery.min.js}"></script>
+		<script th:src="@{/js/bootstrap.min.js}"></script>
 	</div>
 </body>
 </html>
