@@ -34,6 +34,7 @@ import com.bookstore.service.ShoppingCartService;
 import com.bookstore.service.UserPaymentService;
 import com.bookstore.service.UserService;
 import com.bookstore.service.UserShippingService;
+import com.bookstore.utility.MailConstructor;
 import com.bookstore.utility.USConstants;
 
 @Controller
@@ -45,6 +46,9 @@ public class CheckoutController {
 
 	@Autowired
 	private JavaMailSender mailSender;
+	
+	@Autowired
+	private MailConstructor mailConstructor;
 	
 	@Autowired
 	private UserService userService;
