@@ -37,12 +37,12 @@
 						<div th:if="${book != null}">
 							<div class="row">
 								<div class="col-xs-3">
-									<img class="img-responsive shelf-book" th:src="#{adminPath}+@{/image/book}+${book.id}+'.png'"/>
+									<img class="img-responsive shelf-book" th:src="#{adminPath}+@{/image/book/}+${book.id}+'.png'"/>
 								</div>
 								<div class="col-xs-9">
-									<h4 th:text="book.title"></h4>
+									<h4 th:text="${book.title}"></h4>
 									<span th:text="${book.publicationDate}"></span>
-									<span th:text="book.author"></span>
+									<span th:text="${book.author}"></span>
 									<span th:text="${#strings.capitalize(book.format)}"></span>
 									<span th:text="${book.numberOfPages}"><span> pages</span></span>
 									<span style="font-size:x-large;color:#db3208;">$<span

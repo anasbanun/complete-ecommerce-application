@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/header :: common-header"/>
+
+<body>
+<div th:replace="common/header :: navbar"/>
+
+<div class="container">
+    <div class="row" style="margin-bottom: -100px;">
+        <div class="col-xs-8">
+            <h2 class="section-headline">
+                <h2 class="section-headline">
+                    <span th:text="${user}? ${#strings.toUpperCase(user.username)} : 'All Books'"></span>
+                </h2>
+            </h2>
+        </div>
+        <div class="col-xs-4">
+            <img src="/image/logo.png" class="img-responsive"/>
+        </div>
+    </div>
+    <hr
+            style="position: absolute; width: 100%; height: 6px; background-color: #333; z-index: -1; margin-top: -80px;"/>
+    <img class="img-responsive" src="/image/wood.png"
+         style="margin-top: -75px;"/>
+
+    
+    <form th:action="@{/shoppingCart/addItem}" method="post">
+    	<input hidden="hidden" th:field="*{book.id}" />
+    	<div class="row" style="margin-top: 120px;">
+    		<div class="col-xs-3">
+    			<a th:href="@{/bookshelf}">Back to book list</a><br/>
+    			<img class="img-responsive shelf-book" th:src="#{adminPath}+@{/image/book/}+${book.id}+'.png'" />
+    		</div>
+    		
+    		<div class="col-xs-9">
+    			<h3 th:text="${book.title}">Book Title</h3>
+    			<div class="row">
+    				<div class="col-xs-5">
+    					<h5><strong>Author: </strong><span th:text="${book.author}"></span></h5>
+    					<p><strong>Publisher: </strong><span th:text="${book.publisher}"></span></p>
+    					<p><strong>Publication Date: </strong><span th:text="${book.publicationDate}"></span></p>
+    					<p><strong>Language: </strong><span th:text="${book.language}"></span></p>
+    					<p><strong>Category: </strong><span th:text="${book.category}"></span></p>
+    					<p><strong><span th:text="${book.format}"></span>: </strong><span th:text="${book.numberOfPages}"></span> pages</p>
+    					<p><strong>ISBN: </strong><span th:text="${book.isbn}"></span></p>
+    					<p><strong>Shipping Weight: </strong><span th:text="${book.shippingWeight}"></span> ounces</p>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </form>
+</div>
+<!-- end of container -->
+
+
+<div th:replace="common/header :: body-bottom-scripts"/>
+</body>
+</html>
