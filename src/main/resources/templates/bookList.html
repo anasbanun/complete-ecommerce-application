@@ -35,14 +35,14 @@
 						<td th:text="${book.active}"></td>
 						<td>
 							<input hidden="hidden" name="id" th:value="${book.id}" />
-							<button th:id="oneBook-+${book.id}" class="btn btn-danger btn-xs delete-book" type="submit" value="delete" >
-							<span class="fa fa-times"></span></button>
+							<button th:id="'oneBook-'+${book.id}" class="btn btn-danger btn-xs delete-book" type="submit" value="delete" >
+							<span class="fa fa-times"></span>Delete</button>
 						</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
-	<button th:id="deleteSelected" class="btn btn-danger "></button>
+	<button th:id="deleteSelected" class="btn btn-danger ">Delete Selected</button>
 	</div>
 	
 	

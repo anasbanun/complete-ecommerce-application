@@ -30,18 +30,29 @@ $(document).ready(function() {
 		});
 	});
 	
-	var bookIdList=[];
 	
-	#('.checkboxBook').click(function() {
-		var id=$(this).attr('id');
-		if(this.checked){
-			bookIdList.push(id);
-		} else {
-			bookIdList.splice(bookIdList.indexOf(id), 1);
-		}
-	})
+	
+//	$('.checkboxBook').click(function () {
+//        var id = $(this).attr('id');
+//        if(this.checked){
+//            bookIdList.push(id);
+//        }
+//        else {
+//            bookIdList.splice(bookIdList.indexOf(id), 1);
+//        }
+//    })
 	
 	$('#deleteSelected').click(function() {
+		var idList= $('.checkboxBook');
+		var bookIdList=[];
+		for (var i = 0; i < idList.length; i++) {
+			if(idList[i].checked==true) {
+				bookIdList.push(idList[i]['id'])
+			}
+		}
+		
+		console.log(bookIdList);
+		
 		/*<![CDATA[*/
 	    var path = /*[[@{/}]]*/'removeList';
 	    /*]]>*/
@@ -63,19 +74,25 @@ $(document).ready(function() {
 						url: path,
 						data: JSON.stringify(bookIdList),
 						contentType: "application/json",
-						success: function(res) {console.log(res); location.reload()},
-						error: function(res){console.log(res); location.reload();}
+						success: function(res) {
+							console.log(res); 
+							location.reload()
+							},
+						error: function(res){
+							console.log(res); 
+							location.reload();
+							}
 					});
 				}
 			}
 		});
 	});
 	
-	$("selectAllBooks").click(function() {
+	$("#selectAllBooks").click(function() {
 		if($(this).prop("checked")==true) {
-			$(".checkBox").click();
+			$(".checkboxBook").prop("checked",true);
 		} else if ($(this).prop("checked")==false) {
-			$(".checkBox").click();
+			$(".checkboxBook").prop("checked",false);
 		}
 	})
 });
