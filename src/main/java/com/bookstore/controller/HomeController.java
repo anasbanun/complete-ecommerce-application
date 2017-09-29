@@ -63,7 +63,7 @@ public class HomeController {
 		return "myAccount";
 	}
 	
-	@RequestMapping(value="/newUser", method=RequestMethod.POST)
+	@RequestMapping(value="/newUser", method = RequestMethod.POST)
 	public String newUserPost(
 			HttpServletRequest request,
 			@ModelAttribute("email") String userEmail,
@@ -136,6 +136,8 @@ public class HomeController {
 				userDetails.getAuthorities());
 		
 		SecurityContextHolder.getContext().setAuthentication(authentication);
+		
+		model.addAttribute("user", user);
 
 		model.addAttribute("classActiveEdit", true);
 		return "myProfile";
