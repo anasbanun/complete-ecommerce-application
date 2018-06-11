@@ -33,7 +33,7 @@ public class MailConstructor {
 		String message = "\nPlease click on this link to verify your email and edit your personal information. Your password is: \n"+password;
 		SimpleMailMessage email = new SimpleMailMessage();
 		email.setTo(user.getEmail());
-		email.setSubject("Le's Bookstore - New User");
+		email.setSubject("ANAS BANUN LTD - New User");
 		email.setText(url+message);
 		email.setFrom(env.getProperty("support.email"));
 		return email;
@@ -54,7 +54,7 @@ public class MailConstructor {
 				email.setTo(user.getEmail());
 				email.setSubject("Order Confirmation - "+order.getId());
 				email.setText(text, true);
-				email.setFrom(new InternetAddress("ray.deng83@gmail.com"));
+				email.setFrom(new InternetAddress("billing@anasbanun.com"));
 			}
 		};
 		
