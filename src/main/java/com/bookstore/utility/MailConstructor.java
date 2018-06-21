@@ -30,10 +30,10 @@ public class MailConstructor {
 			) {
 		
 		String url = contextPath + "/newUser?token="+token;
-		String message = "\nPlease click on this link to verify your email and edit your personal information. Your password is: \n"+password;
+		String message = "\nPlease click on this link to verify your email and edit your personal information. \nYour password is: \n"+password;
 		SimpleMailMessage email = new SimpleMailMessage();
 		email.setTo(user.getEmail());
-		email.setSubject("ANAS BANUN LTD - New User");
+		email.setSubject("ANAS BANUN LTD - New User / Password Reset");
 		email.setText(url+message);
 		email.setFrom(env.getProperty("support.email"));
 		return email;
@@ -52,7 +52,7 @@ public class MailConstructor {
 			public void prepare(MimeMessage mimeMessage) throws Exception {
 				MimeMessageHelper email = new MimeMessageHelper(mimeMessage);
 				email.setTo(user.getEmail());
-				email.setSubject("Order Confirmation - "+order.getId());
+				email.setSubject("ANAS BANUN LTD Order Confirmation - "+order.getId());
 				email.setText(text, true);
 				email.setFrom(new InternetAddress("billing@anasbanun.com"));
 			}
